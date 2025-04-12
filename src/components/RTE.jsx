@@ -29,7 +29,7 @@ export default function RTE({
 
         render={({field: {onChange}}) => (
             <Editor
-            apiKey='8ub6sdprz3c69r00kx0sbj01i415jptjkf1ib1svgu0cptfj'
+         apiKey='8ub6sdprz3c69r00kx0sbj01i415jptjkf1ib1svgu0cptfj'
             //Editor is React component
             initialValue={defaultValue}
             init={{

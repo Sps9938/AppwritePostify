@@ -21,7 +21,8 @@ function Login() {
             if(session) {
                 const userData = await authService.getCurrentUser()
 
-                if(userData) dispatch(authLogin({userData}));
+                if(userData) dispatch(authLogin(userData));
+                //{userData}->it will take object of object no need this just -> userData
                 navigate("/")
 
             }

@@ -14,8 +14,12 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
+    console.log("userData is: ", userData);
+    
     const isAuthor = post && userData ? post.userId
     === userData.$id : false
+    // console.log("author: ", isAuthor);
+    
     // console.log("Welcome in Post");
     // console.log(slug);
     
@@ -62,14 +66,12 @@ export default function Post() {
                 const result = await appwriteService.getFileView(post.featuredImage);
               
              
-                if(result) {
-                    console.log("Image preview URL: ", result);
-                    setImageUrl(result);
-                    
-                } else{
+                if(!result) {
                     console.log("No href found in image preview result: ", result);
+                   
                     
-                }
+                } 
+                setImageUrl(result);
             } catch (error) {
                 console.log("Error fetching image preview:", error);
             }

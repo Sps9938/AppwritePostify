@@ -55,7 +55,7 @@ export default function PostForm( { post }) {
         else{
             const file = await appwriteService.uploadFile(data.image[0])
 
-            console.log(userData.$id);
+            // console.log(userData.$id);
 
             if(!file){
                console.log("File Fetched Fail");

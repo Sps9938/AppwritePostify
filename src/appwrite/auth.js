@@ -29,7 +29,7 @@ export class AuthService {
             console.log("user try to created Account",name);
             
            const userAccount = await this.account.create(ID.unique(), email, password, name)
-           console.log("created sucessfully");
+        //    console.log("created sucessfully");
 
          
            if(userAccount) {
@@ -82,7 +82,7 @@ export class AuthService {
     
             if(currentSession){
                 await this.account.deleteSession('current');
-                console.log("Previous session deleted");
+                // console.log("Previous session deleted");
                 
             }
            } catch (error) {

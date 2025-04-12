@@ -98,9 +98,9 @@ export default function Post() {
         <div className="py-8">
         <Container>
             <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-        {
+        {/* {
                 console.log("image url is: ",imageUrl)
-        }
+        } */}
             {imageUrl ? (
                 <img 
                     src={imageUrl}

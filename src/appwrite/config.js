@@ -157,7 +157,7 @@ export class Service {
     async getFileView(fileId) {
         try {
     
-            console.log("FileId is: ", fileId);
+            // console.log("FileId is: ", fileId);
             
            const file_url =  await this.bucket.getFileView(
                 conf.appwriteBucketId,

@@ -27,7 +27,7 @@ export default function Post() {
             try {
                 
                 const post = await appwriteService.getPost(slug);
-                console.log("post is getting", post);
+                // console.log("post is getting", post);
                 
                 if(post) {
                     setPost(post);
@@ -55,7 +55,7 @@ export default function Post() {
 
     useEffect(() => {
     const fetchPreview = async () => {
-        console.log("post fetched",post.featuredImage);
+        // console.log("post fetched",post.featuredImage);
         
         if (post?.featuredImage) {
             try {

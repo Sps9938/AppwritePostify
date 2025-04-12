@@ -42,7 +42,7 @@ export default function PostForm( { post }) {
             ...data,
             featuredImage: file ? file.$id : undefined,
             });
-            console.log(dbPost);
+            // console.log(dbPost);
             
             if (!dbPost) {
                console.log("Post Not Found");
@@ -53,7 +53,7 @@ export default function PostForm( { post }) {
         else{
             const file = await appwriteService.uploadFile(data.image[0])
 
-            console.log(userData.$id);
+            // console.log(userData.$id);
 
             if(!file){
                console.log("File Fetched Fail");

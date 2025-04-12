@@ -23,11 +23,13 @@ export default function PostForm( { post }) {
     });
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
-    // console.log(userData);
+    // console.log("userData is: ",userData);
     
     
 
     const submit = async (data) => {
+        console.log(data);
+        
         if(post) {
 
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
@@ -53,7 +55,7 @@ export default function PostForm( { post }) {
         else{
             const file = await appwriteService.uploadFile(data.image[0])
 
-            // console.log(userData.$id);
+            console.log(userData.$id);
 
             if(!file){
                console.log("File Fetched Fail");

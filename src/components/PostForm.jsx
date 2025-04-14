@@ -1,13 +1,15 @@
-import React ,{useEffect, useCallback} from "react";
+import React ,{useEffect, useCallback, Suspense, lazy} from "react";
 import {useForm} from 'react-hook-form'
 
-import {Button, Input, Select, RTE} from './index'
+import {Button, Input, Select} from './index'
 
 import appwriteService from "../appwrite/config";
 
 import { useNavigate } from "react-router-dom";
 
 import { useSelector } from  'react-redux'
+
+const RTE = lazy(() => import('./RTE'));
 
 export default function PostForm( { post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -246,7 +248,18 @@ export default function PostForm( { post }) {
                     setValue("slug", slugTransForm(e.currentTarget.value), { shouldValidate: true });
                 }}
             />
-            <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+            
+            <Suspense 
+           fallback={<p>Loadiing Editor...</p>}>
+             <RTE 
+            label="Content :"
+            name="content"
+            control={control}
+            defaultValue={getValues("content")}
+            
+            />
+           </Suspense>
+
         </div>
         <div className="w-1/3 px-2">
             <Input

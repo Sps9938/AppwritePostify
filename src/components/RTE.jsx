@@ -1,5 +1,6 @@
 import React from "react";
 import {Editor} from "@tinymce/tinymce-react"
+
    //Editor is React component
 import {Controller} from "react-hook-form"
   /*

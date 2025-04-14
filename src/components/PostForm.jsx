@@ -11,6 +11,11 @@ import { useSelector } from  'react-redux'
 
 const RTE = lazy(() => import('./RTE'));
 
+export const preLoadRTE = () => {
+    import('./RTE');
+}
+
+
 export default function PostForm( { post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
@@ -26,7 +31,10 @@ export default function PostForm( { post }) {
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
     // console.log("userData is: ",userData);
-    
+
+        useEffect(() => {
+            preLoadRTE();
+        }, []);
     
 
     const submit = async (data) => {
@@ -248,7 +256,7 @@ export default function PostForm( { post }) {
                     setValue("slug", slugTransForm(e.currentTarget.value), { shouldValidate: true });
                 }}
             />
-            
+
             <Suspense 
            fallback={<p>Loadiing Editor...</p>}>
              <RTE 

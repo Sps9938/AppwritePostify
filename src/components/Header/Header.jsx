@@ -4,6 +4,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
+import { preLoadRTE } from "../PostForm";
+// import { preLoadPost } from "../../pages/AllPost";
+// import { preLoadHome } from "../../pages/Home";
 
 function Header() {
    const authStatus = useSelector((state) => state.auth.status)
@@ -57,6 +60,18 @@ function Header() {
     <li key={item.name}>
         <button
         onClick={() => navigate(item.slug)}
+        onMouseEnter={() => {
+
+            // if (item.name === "Home") preLoadHome();
+
+            if (item.name === "Add Post") preLoadRTE();
+           
+            // if (item.name === "Add Post") preLoadPost();
+
+            
+
+
+        }}
         className="px-4 py-2 text-gray-700 hover:text-white hover:bg-yellow-500 transition-all duration-200 rounded-full text-sm font-medium"
         >
         {item.name}

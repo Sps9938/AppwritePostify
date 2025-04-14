@@ -1,9 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import appwriteService from "../appwrite/config";
-import { Container, PostCard } from "../components";
+import { Container } from "../components";
+
+const PostCard = lazy(() => import("../components/PostCard"))
+
+// export const preLoadHome = () => {
+//     import('../components/PostCard');
+// }
 
 function Home() {
     const [posts, setPosts] = useState([]);
+
+    // useEffect(() => {
+    //     preLoadHome();
+    //         }, []);
+            
 
     useEffect(() => {
         appwriteService.getAllPost().then((posts) => {
@@ -31,9 +42,14 @@ function Home() {
         <Container>
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">✨ Latest Posts</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
+
+            <Suspense
+            fallback={<div>Loading posts...</div>}>
+                {posts.map((post) => (
                 <PostCard key={post.$id} {...post} />
             ))}
+
+            </Suspense>
         </div>
         </Container>
         </div>

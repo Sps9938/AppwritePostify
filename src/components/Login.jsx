@@ -79,7 +79,7 @@ function Login() {
              <Button
              type="submit"
              className="w-full"
-             >Sing in</Button>
+             >Sign in</Button>
 
             </div>
         </form>
